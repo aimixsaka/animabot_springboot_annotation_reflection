@@ -16,7 +16,7 @@ public class ReflectionUtil
     private static List<Object[]> functionMethods;
 
     /**
-     * 扫描所有带有@Function自定义注解的类，并获取它们的所有方法
+     * 扫描所有带有@Controller注解的类，并获取它们的所有方法
      */
     public static void setFunctionMethods()
     {

@@ -3,6 +3,7 @@ package com.yanfang.animabot.controller;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.yanfang.animabot.annotations.Event;
+import com.yanfang.animabot.annotations.Events;
 import com.yanfang.animabot.config.LongConfig;
 import com.yanfang.animabot.enums.EventEnum;
 import com.yanfang.animabot.functions.SendImage;
@@ -31,8 +32,8 @@ public class GroupController
      * @param event 传入的事件
      * @param messages 消息链
      */
-    @Event(eventType = EventEnum.GROUPEVENT, authority = true, judgeByMethod = true)
-    @Event(eventType = EventEnum.MASTEREVENT, authority = true, judgeByMethod = true)
+    @Events({@Event(eventType = EventEnum.GROUPEVENT, authority = true, judgeByMethod = true),
+            @Event(eventType = EventEnum.MASTEREVENT, authority = true, judgeByMethod = true)})
     public void translate(MessageEvent event, MessageChain messages)
     {
         String message = messages.contentToString();
@@ -57,16 +58,16 @@ public class GroupController
     }
 
     /*help页*/
-    @Event(eventType = EventEnum.GROUPEVENT, authority = true, message = "Help")
-    @Event(eventType = EventEnum.MASTEREVENT, authority = true, message = "Help")
+    @Events({@Event(eventType = EventEnum.GROUPEVENT, authority = true, message = "Help"),
+            @Event(eventType = EventEnum.MASTEREVENT, authority = true, message = "Help")})
     public void sendHelp(MessageEvent event, MessageChain messages)
     {
         event.getSubject().sendMessage(LongConfig.HELP);
     }
 
     /*发送食物饮料*/
-    @Event(eventType = EventEnum.GROUPEVENT, authority = true, judgeByMethod = true)
-    @Event(eventType = EventEnum.MASTEREVENT, authority = true, judgeByMethod = true)
+    @Events({@Event(eventType = EventEnum.GROUPEVENT, authority = true, judgeByMethod = true),
+            @Event(eventType = EventEnum.MASTEREVENT, authority = true, judgeByMethod = true)})
     public void sendDrinkAndFood(MessageEvent event, MessageChain messages)
     {
         String message = messages.contentToString();
@@ -88,8 +89,8 @@ public class GroupController
     }
 
     /*添加食物饮料*/
-    @Event(eventType = EventEnum.GROUPEVENT, authority = true, judgeByMethod = true)
-    @Event(eventType = EventEnum.MASTEREVENT, authority = true, judgeByMethod = true)
+    @Events({@Event(eventType = EventEnum.GROUPEVENT, authority = true, judgeByMethod = true),
+            @Event(eventType = EventEnum.MASTEREVENT, authority = true, judgeByMethod = true)})
     public void addDrinkAndFood(MessageEvent event, MessageChain messages)
     {
         String message = messages.contentToString();
@@ -127,8 +128,8 @@ public class GroupController
     }
 
     /*发送lolita*/
-    @Event(eventType = EventEnum.GROUPEVENT, authority = true, message = "/lolita")
-    @Event(eventType = EventEnum.MASTEREVENT, authority = true, message = "/lolita")
+    @Events({@Event(eventType = EventEnum.GROUPEVENT, authority = true, message = "/lolita"),
+            @Event(eventType = EventEnum.MASTEREVENT, authority = true, message = "/lolita")})
     public void sendPhoto(MessageEvent event, MessageChain messages)
     {
         String message = messages.contentToString();
@@ -147,7 +148,7 @@ public class GroupController
     }
 
     /*群临时会话*/
-    @Event(eventType = EventEnum.TEMPEVENT, authority = true, judgeByMethod = true)
+    @Events(@Event(eventType = EventEnum.TEMPEVENT, authority = true, judgeByMethod = true))
     public void tempTalking(MessageEvent event)
     {
         event.getSender().sendMessage("I am sorry, I only takes orders from Groups or Masters");

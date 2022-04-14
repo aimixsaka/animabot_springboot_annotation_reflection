@@ -1,9 +1,5 @@
-#spring:
-#  redis:
-#    host: 127.0.0.1
-#    port: 6251
-#    password: 1111
 spring:
   redis:
     host: 127.0.0.1
-    port: 6379
+    port: 6251
+    password: 1111

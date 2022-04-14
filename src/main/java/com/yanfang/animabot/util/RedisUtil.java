@@ -46,10 +46,4 @@ public class RedisUtil
         else return false;
     }
 
-    public void test()
-    {
-        stringRedisTemplate.opsForValue().set("hello", "world");
-        System.out.println(stringRedisTemplate.opsForValue().get("hello"));
-    }
-
 }

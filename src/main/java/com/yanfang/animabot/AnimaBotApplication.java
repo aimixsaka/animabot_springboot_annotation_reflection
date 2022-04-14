@@ -1,7 +1,6 @@
 package com.yanfang.animabot;
 
 import com.yanfang.animabot.bot.AnimaBot;
-import com.yanfang.animabot.util.RedisUtil;
 import com.yanfang.animabot.util.ReflectionUtil;
 import com.yanfang.animabot.util.SpringUtil;
 import org.springframework.boot.SpringApplication;

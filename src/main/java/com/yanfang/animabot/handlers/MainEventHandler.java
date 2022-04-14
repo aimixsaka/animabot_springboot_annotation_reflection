@@ -28,7 +28,8 @@ public class MainEventHandler extends SimpleListenerHost
     @Override
     public void handleException(@NotNull CoroutineContext context, @NotNull Throwable exception)
     {
-        log.warn(exception.getMessage());
+        log.warn(exception.toString());
+        exception.printStackTrace();
     }
 
     /**
