@@ -24,7 +24,7 @@ public class AnimaBot
     // 启动bot
     public void start()
     {
-        long account = "xxxxxxxx";
+        long account = xxxxxxxx;
         String password = "xxxxxxxx";
 
         bot = BotFactory.INSTANCE.newBot(account, password, new BotConfiguration()
